@@ -968,8 +968,8 @@ namespace crow
                                 {
                                     state = NumberParsingState::ZeroFirst;
                                 }
-                                else if (state == NumberParsingState::Digits || 
-                                    state == NumberParsingState::DigitsAfterE || 
+                                else if (state == NumberParsingState::Digits ||
+                                    state == NumberParsingState::DigitsAfterE ||
                                     state == NumberParsingState::DigitsAfterPoints)
                                 {
                                     // ok; pass
@@ -997,8 +997,8 @@ namespace crow
                                 {
                                     state = NumberParsingState::Digits;
                                 }
-                                else if (state == NumberParsingState::Digits || 
-                                    state == NumberParsingState::DigitsAfterE || 
+                                else if (state == NumberParsingState::Digits ||
+                                    state == NumberParsingState::DigitsAfterE ||
                                     state == NumberParsingState::DigitsAfterPoints)
                                 {
                                     // ok; pass
@@ -1046,12 +1046,12 @@ namespace crow
                             case 'e':
                             case 'E':
                                 state = static_cast<NumberParsingState>("\7\7\7\5\5\7\7"[state]);
-                                /*if (state == NumberParsingState::Digits || 
+                                /*if (state == NumberParsingState::Digits ||
                                     state == NumberParsingState::DigitsAfterPoints)
                                 {
                                     state = NumberParsingState::E;
                                 }
-                                else 
+                                else
                                     return {};*/
                                 break;
                             default:
@@ -1599,11 +1599,7 @@ namespace crow
                 }
                 else
                 {
-#if defined(__APPLE__) || defined(__MACH__)
                     o = std::unique_ptr<object>(new object(initializer_list));
-#else
-                    (*o) = initializer_list;
-#endif
                 }
                 return *this;
             }
@@ -1618,11 +1614,7 @@ namespace crow
                 }
                 else
                 {
-#if defined(__APPLE__) || defined(__MACH__)
                     o = std::unique_ptr<object>(new object(value));
-#else
-                    (*o) = value;
-#endif
                 }
                 return *this;
             }
